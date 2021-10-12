@@ -1,0 +1,27 @@
+.form {
+  text-align: right;
+  margin: 1rem;
+  color: white;
+}
+
+.input {
+  border-radius: 10px;
+  width: 300px;
+  height: 40px;
+  font-size: 20px;
+  font-family: 'Handlee', cursive;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.search {
+  border: transparent;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  background-color: transparent;
+  cursor: pointer;
+  text-align: center;
+  color: white;
+}

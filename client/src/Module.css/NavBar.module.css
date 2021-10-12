@@ -1,0 +1,47 @@
+.navbar{
+    background-color:#3a3735;
+    display: grid;
+    grid-template-columns: 10% 10% 10% 30% 40%;
+    font-family: "Covered By Your Grace", cursive;
+    text-align: center;
+    align-items: self-end;
+}
+
+.h1{
+    font-size: 50px;
+    margin: 0;
+    color: white;
+    color: #FFFFFF;
+background: #3a3735;
+text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+color: #FFFFFF;
+background: #3a3735;
+}
+
+.home,
+.create,
+.about{
+    font-family: 'Handlee', cursive;
+    background-color: transparent;
+    font-size: 30px;
+    text-decoration: none;
+    margin: 10px;
+    border: 1px solid;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.home:hover,
+.create:hover,
+.about:hover{
+    background-color: rgba(255, 255, 255, 0.75);
+    color: black;
+}
+  
+.home:active,
+.create:active,
+.about:active{
+    border: transparent;
+  }
+  

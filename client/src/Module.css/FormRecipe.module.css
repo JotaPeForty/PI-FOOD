@@ -1,0 +1,91 @@
+.container {
+  background-image: url(../Img/meal.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  height: 100vh;
+  font-family: "Handlee", cursive;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+.container2 {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid;
+  margin-left: 3rem;
+  width:500px;
+  border-radius: 30px;
+  height: 820px;
+  font-size:24px;
+}
+
+.h1 {
+  font-size: 3rem;
+  margin: 0;
+  text-align: center;
+}
+
+.form {
+  align-content: center;
+  display: grid;
+  grid-auto-columns: auto auto;
+  text-align: center;
+  justify-content: flex-start;
+  width: 500px;
+  margin-left: 1.5rem;
+}
+
+.input {
+  width: 450px;
+  height: 20px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.75);
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.divscore {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.inputN {
+  width: 80px;
+  height: 20px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.check {
+  display: grid;
+  grid-template-columns: auto auto;
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 2¿10px;
+}
+
+.inputcheck {
+  border-radius: 25px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.button {
+  background-color: transparent;
+  border: 2px solid;
+  border-radius: 20px;
+  font-size: 30px;
+  font-family: "Handlee", cursive;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.button:active{
+  border: transparent;
+}

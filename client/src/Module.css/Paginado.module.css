@@ -1,0 +1,25 @@
+.paginado {
+  gap: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.button{
+    background-color: hsla(0, 0%, 100%, 0.600);
+    width: 60px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid;
+}
+
+.button:hover{
+    background-color: rgba(0, 0, 0, 0.513);
+    color: white;
+    border: transparent
+}
+
+.button::selection{
+    background-color: rgba(0, 0, 0, 0.513);
+    color: white;
+    border: transparent
+}

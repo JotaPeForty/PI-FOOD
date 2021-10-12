@@ -1,0 +1,23 @@
+.container {
+  background-color: #3a3735;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.text {
+  font-size: 1.5rem;
+  font-family: "Handlee", cursive;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+.logo {
+  font-size: x-large;
+  margin-right: 2rem;
+}
+
+.icon {
+  margin-right: 2rem;
+  font-size: 45px;
+}

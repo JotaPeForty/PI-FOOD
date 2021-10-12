@@ -1,0 +1,58 @@
+.card {
+  background-color: rgba(255, 255, 255, 0.541);
+  border:  solid 1px;
+  border-color: white;
+  text-align: center;
+  border-radius: 25px;
+  height: 510px;
+  font-family: 'Handlee', cursive;
+  /* color: white; */
+  font-size: 20px
+
+}
+
+.title{
+  margin:auto;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+.container{
+  padding: 1rem;
+  margin:auto;
+}
+
+.number {
+  display: grid;
+  grid-auto-flow: column;
+}
+
+.p{
+  margin: 0;
+  font-size: 2rem;
+  display: grid;
+  font-style: oblique;
+  font-weight: bold;
+  height: 100px;
+}
+
+.pp{
+  margin:auto;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+
+.diet{
+
+  margin:auto;
+}
+
+
+.img{
+  width: 400px;
+  border-radius: 30px;
+  padding:0px;
+  margin:0px;
+  
+}

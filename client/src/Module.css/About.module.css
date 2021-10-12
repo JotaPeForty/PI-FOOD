@@ -1,0 +1,16 @@
+.container {
+  background-image: url(../Img/wood.jpg);
+  background-size: cover;
+  text-align: center;
+  color:white;
+  font-size: 30px;
+  font-family: "Handlee", cursive;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+
+.icon {
+    margin-right: 3rem;
+    font-size: 45px;
+  }

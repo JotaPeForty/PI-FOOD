@@ -1,0 +1,32 @@
+.landingPage {
+  background-image: url(../Img/Landing.jpg);
+  background-size: cover;
+  background-position: top center;
+  display: flex;
+  justify-content: center;
+  background-position-y: center;
+  height: 100vh;
+}
+
+.link {
+  padding: 4rem;
+  font-family: "Covered By Your Grace", cursive;
+  font-size: 100px;
+  color: white;
+  text-decoration: none;
+  animation-duration: 3s;
+  animation-name: logo;
+  animation-iteration-count: infinite;
+}
+
+/* @keyframes logo {
+  50% {
+    width: 700px;
+    height: 300px;
+  }
+
+  50% {
+    width: 600px;
+    height: 200px;
+  }
+} */
