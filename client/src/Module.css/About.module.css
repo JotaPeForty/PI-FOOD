@@ -1,16 +1,24 @@
 .container {
   background-image: url(../Img/wood.jpg);
+  height: 90.5vh;
   background-size: cover;
+  background-repeat: no-repeat;
   text-align: center;
   color:white;
-  font-size: 30px;
+  font-size: 2rem;
   font-family: "Handlee", cursive;
   font-style: oblique;
   font-weight: bold;
+  overflow: hidden;
 }
 
 
 .icon {
     margin-right: 3rem;
     font-size: 45px;
+  }
+
+  .logo{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
   }

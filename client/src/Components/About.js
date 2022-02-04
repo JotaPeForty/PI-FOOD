@@ -16,16 +16,12 @@ function About() {
       <div>
         <br/>
         <h1 className={s.h1}>Henry 2021 </h1>
-        <br/>
         <h2 className={s.h2}>Proyecto Individual</h2>
         <h2 className={s.h2}>Juan Pablo Benavente</h2>
-        <br/>
         <article>
-            Proyecto Individual FOOD de Juan Pablo Benavente presentado para Henry. || año 2021
+            Proyecto Individual FOOD de Juan Pablo Benavente presentado para Henry. 2021
         </article>
-        <br/>
-        <br/>
-        <br/>
+
         <hr/>
         <p className={s.logo}>
         <SiReact className={s.icon} />

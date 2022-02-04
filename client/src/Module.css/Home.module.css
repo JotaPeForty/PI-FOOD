@@ -1,7 +1,7 @@
 .home {
   background-image: url(../Img/sala.jpg);
   background-size: cover;
-  justify-content: center;
+  justify-content: center bottom;
   text-align: center;
 }
 
@@ -9,6 +9,7 @@
 .filtrodiets,
 .filtroorden{
     height: 1.5rem;
+    border-radius: 1rem;
     font-family: 'Handlee', cursive;
     font-weight: bold;
 }
@@ -25,6 +26,7 @@ margin-left: 7rem;
     height: 2rem;
     width: 30rem;
     margin: 1rem;
+    border-radius: 1rem;
     font-size: 1.2rem;
     font-family: 'Handlee', cursive;
     font-style: oblique;

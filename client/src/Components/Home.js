@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -10,18 +10,16 @@ import {
 } from "../Redux/Actions/index";
 import Card from "./Card";
 import Paginado from "./Paginado";
-//import Order from "./Order";
 import Footer from "./Footer";
-//import Filter from "./Filter";
 import s from "../Module.css/Home.module.css";
 
 function Home() {
   const dispatch = useDispatch();
   const recipes = useSelector((state) => state.recipes);
-  //console.log("esto trae", recipes);
+  
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [recipePerPage /*setRecipePerPage*/] = useState(9);
+  const [recipePerPage, setRecipePerPage] = useState(9);// eslint-disable-line
   const indexOflastRecipe = currentPage * recipePerPage;
   const indexOfFirstRecipe = indexOflastRecipe - recipePerPage;
   const currentRecipe = recipes.slice(indexOfFirstRecipe, indexOflastRecipe);
@@ -39,14 +37,13 @@ function Home() {
     dispatch(getRecipes());
   }
 
-  // const [filter, setFilter] = useState("");
 
   function handleFliterDiets(e) {
     dispatch(filterDiets(e.target.value));
   }
 
-  const [order, setOrder] = useState("");
-  const [score, setScore] = useState("");
+  const [order, setOrder] = useState("");// eslint-disable-line
+  const [score, setScore] = useState("");// eslint-disable-line
 
   function handleOrderName(e) {
     e.preventDefault();
@@ -56,7 +53,6 @@ function Home() {
   }
   function handleOrderScore(e) {
     e.preventDefault();
-    //console.log(" esto trae", setScore);
     dispatch(orderScore(e.target.value));
     setCurrentPage(1);
     setScore(`Ordenado: ${e.target.value}`);
@@ -91,7 +87,7 @@ function Home() {
         </select>
         </div>
         <div>
-        <button className={s.recarga} onClick={(e) => handleClick(e)}>Recargar Recipe</button>
+        <button className={s.recarga} onClick={(e) => handleClick(e)}>Reload Recipe</button>
       </div>
       </div>
       <div className={s.paginado}>

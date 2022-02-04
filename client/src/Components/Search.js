@@ -26,6 +26,9 @@ function Search() {
         type="search"
         placeholder="Search Recipe...."
         onChange={(e) => handleImputSearch(e)}
+        onKeyPress={(e) => {
+          if (e.key === "13") handleImputSearch(e);
+        }}
       />
       <button
         className={s.search}
