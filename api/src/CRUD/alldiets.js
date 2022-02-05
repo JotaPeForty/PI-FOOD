@@ -16,14 +16,14 @@ const allDiets = async (req, res, next) => {
         diets: e.diets,
       };
     });
-    
+
     let data = allDiet.map((e)=>Object.values(e)).flat(2)
 
     let result = data.filter((item,index)=>{
         return data.indexOf(item) === index;
       })
 
-      console.log(result)
+    
 
     res.send(result);
   } catch (err) {

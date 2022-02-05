@@ -6,40 +6,67 @@ import s from "../Module.css/FormRecipe.module.css";
 function FormRecipe() {
   const dispatch = useDispatch();
   const diets = useSelector((state) => state.diets);
-  
-
-  const [form, setForm] = useState({
+  let dataForm = {
     title: "",
     score: "",
     healthscore: "",
     dishtypes: [],
     image: "",
     summary: "",
-    instructions: "",
+    instructions: [],
     diets: [],
-  });
-
-  useEffect(() => {
-    dispatch(getDiets());
-  }, [dispatch]);
+  }
   
 
+  const [form, setForm] = useState(dataForm);
+
+  const [namesDiet, setNamesDiet] = useState([]);
+  const [errors, setErrors] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+
+  
   const onSubmit = (e) => {
     e.preventDefault();
+    if (
+      form.title &&
+      form.image &&
+      form.score &&
+      form.healthscore &&
+      form.dishtypes &&
+      form.summary &&
+      form.instructions &&
+      form.diets
+    ) {
     dispatch(createRecipe(form));
-    setForm({
-      title: "",
-      score: "",
-      healthscore: "",
-      dishtypes: [],
-      image: "",
-      summary: "",
-      instructions: "",
-      diets: [],
-    });
+    setErrors(false);
+    setSuccess(true);
+    setForm(dataForm);
+    setNamesDiet([]);
+  } else {
+    setSuccess(false);
+    setErrors(true);
+  }
   };
 
-
+  const handleSelect = (e) => {
+    let index = e.target.selectedIndex;
+if(!namesDiet.includes(e.target.options[index].text)){
+  setNamesDiet((names) => [...names, e.target.options[index].text]);
+  setForm((form) => ({
+    ...form,
+    diets: [...form.diets, e.target.value],
+  }));
+}else{
+  setNamesDiet(namesDiet.filter(name=> name !== e.target.options[index].text))
+  setForm((form) => ({
+    ...form,
+    diets: form.diets.filter(id=> id !== e.target.value),
+  }));
+  }
+  }
+  
+  
   const handleOnChange = (e) => {
     setForm({
       ...form,
@@ -47,6 +74,9 @@ function FormRecipe() {
     });
   }
   
+  useEffect(() => {
+    dispatch(getDiets());
+  }, [dispatch]);
 
   return (
     <div className={s.container}>
@@ -63,14 +93,24 @@ function FormRecipe() {
             name="title"
             type="text"
           />
+          <div className={s.divscore}>
           <input
-            className={s.input}
+            className={s.inputN}
             value={form.image}
             onChange={(e)=>handleOnChange(e)}
             placeholder="Image"
             name="image"
             type="text"
           />
+            <input
+              className={s.inputN}
+              value={form.dishtypes}
+              onChange={(e)=>handleOnChange(e)}
+              placeholder="Dish Types"
+              name="dishtypes"
+              type="text"
+            />
+            </div>
           <div className={s.divscore}>
             <input
               className={s.inputN}
@@ -89,15 +129,6 @@ function FormRecipe() {
               type="text"
             />
           </div>
-            <input
-              className={s.input}
-              value={form.dishtypes}
-              onChange={(e)=>handleOnChange(e)}
-              placeholder="Dish Types"
-              name="dishtypes"
-              type="text"
-            />
-
           <textarea
             className={s.input}
             value={form.summary}
@@ -106,29 +137,48 @@ function FormRecipe() {
             name="summary"
             type="text"
           />
-          <textarea
+          <label>Instructions</label>
+          <input
             className={s.input}
             value={form.instructions}
             onChange={(e)=>handleOnChange(e)}
-            placeholder="Instructions"
-            name="instructions"
+            placeholder="Step One"
+            name="Step1"
             type="text"
           />
+          {dataForm.instructions.length===1? 
+          <input
+            className={s.input}
+            value={form.instructions}
+            onChange={(e)=>handleOnChange(e)}
+            placeholder="Step Two"
+            name="Step2"
+            type="text"
+          />:""
+          }
+
           <div className={s.check}>
-            {diets?.map((e) => (
-                <label key={e.id}>
-                  <input
-                    className={s.inputcheck}
-                    onChange={(e) => handleOnChange(e)}
-                    type="checkbox"
-                    name="diets"
-                    key={e.id}
-                    value={e.id}
-                    />
+            <select className={s.input} onChange={handleSelect}>
+              <option hidden selected>Diets</option>
+              {diets?.map((e) => (
+                <option key={e.id} value={e.id}>
                   {e.name}
-                </label>
+                </option> 
               ))}
+            </select>
           </div>
+          <div>
+              <p>
+               {/* <h3>Diets: </h3> */}
+                <div className={s.temp}>
+                  {namesDiet?.map((e, i) => (
+                    <div className={s.diet2} key={i}>
+                      <p>{e}</p>
+                    </div>
+                  ))}
+                </div>
+              </p>
+            </div>
           <br />
           <input className={s.button} type="submit" value="Create" />
         </form>

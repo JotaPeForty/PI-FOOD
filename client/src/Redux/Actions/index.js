@@ -10,6 +10,7 @@ export const REMOVE_RECIPE = "REMOVE_RECIPE";
 export const GET_RECIPE_SEARCH = "GET_RECIPE_SEARCH";
 export const ORDER_SCORE = "ORDER_SCORE";
 export const GET_DISHTYPES = "GET_DISHTYPES";
+export const FILTER_DB = "FILTER_DB";
 
 export const createRecipe = (recipe) => {
   return (dispatch) => {
@@ -126,3 +127,9 @@ export const orderScore = (payload) => {
     payload,
   };
 };
+export function filterDbAPi(payload) {
+  return {
+    type: FILTER_DB,
+    payload,
+  };
+}

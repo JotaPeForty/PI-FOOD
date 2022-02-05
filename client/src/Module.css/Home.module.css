@@ -8,19 +8,18 @@
 .filtroscore,
 .filtrodiets,
 .filtroorden{
+    margin: 0 1rem 0 1rem;
     height: 1.5rem;
     border-radius: 1rem;
     font-family: 'Handlee', cursive;
     font-weight: bold;
+    text-align: center;
 }
 
-.filtroscore{
-margin-right: 7rem;
+.select{
+  display: flex;
+  justify-content: center;
 }
-
-.filtroorden{
-margin-left: 7rem;
-} 
 
 .recarga {
     height: 2rem;

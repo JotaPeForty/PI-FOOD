@@ -20,10 +20,6 @@ module.exports = (sequelize) => {
     dishtypes: {
       type: DataTypes.STRING,
     },
-    // dishtypes: {
-    //   type: DataTypes.ARRAY(DataTypes.STRING),
-    //   allowNull: false,
-    // },
     score: {
       type: DataTypes.REAL,
 
@@ -38,6 +34,11 @@ module.exports = (sequelize) => {
     image: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    createdInDb: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+      defaultValue: true,
     },
   },
   {timestamps: false});

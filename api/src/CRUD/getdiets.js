@@ -1,21 +1,11 @@
 const { Diets } = require("../db");
+const axios = require("axios");
 
 const preDiet = async () => {
   try {
-    let arrayDiets = [
-      "gluten free",
-      "ketogenic",
-      "dairy free",
-      "vegetarian",
-      "lacto ovo vegetarian",
-      "fodmap friendly",
-      "vegan",
-      "pescatarian",
-      "paleolithic",
-      "primal",
-      "whole 30",
-    ];
-
+    let arrayDiets = await axios.get("http://localhost:3001/diet")
+    arrayDiets =arrayDiets.data
+  
     arrayDiets = arrayDiets.map((e) => {
       return {
         name: e,
