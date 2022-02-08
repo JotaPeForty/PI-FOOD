@@ -39,7 +39,6 @@ function Home() {
     dispatch(getRecipes());
   }
 
-  console.log("=>", diets);
 
   function handleFliterDiets(e) {
     dispatch(filterDiets(e.target.value));

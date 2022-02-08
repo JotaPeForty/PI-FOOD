@@ -10,9 +10,19 @@ function Recipes(props) {
   const recipe = useSelector((state) => state.recipe);
   const dispatch = useDispatch();
   const history = useHistory();
-  //console.log(" ESTO TRAE ID", id)
-  //console.log(" ESTO TRAE RECIPE", recipe)
 
+//   let arrayDiets = [];
+//   if(typeof (recipe.diets[0] === "object")){
+//   arrayDiets = recipe.diets.map((e)=> e.name);
+// }
+  //console.log(" ESTO TRAE ID", id)
+  // console.log("RECIPE e =>", recipe.diets.map((e)=> e))
+  //console.log("RECIPE api =>", recipe.diets)
+  //console.log("RECIPE api V=>", Array.isArray(recipe.diets))
+console.log("RECIPE db =>", recipe.diets)
+  
+  //console.log("RECIPE db V=>", recipe.diets.map((e)=>Object.values(e)))
+ 
   useEffect(() => {
     dispatch(getRecipe(id));
     return () => {
@@ -57,9 +67,16 @@ function Recipes(props) {
                 </div>
                 <br/>
                 <h5 className={s.diet}>
-                  {recipe?.diets?.map((e) => (
+                  {Array.isArray(recipe.diets[0])?
+                  "":
+                    recipe.diets.map((e) => (
                     <p>{e}</p>
                   ))}
+                  
+                  {/* arrayDiets.map((e) => (
+                    <p>{e}</p>
+                  ))
+                  }   */}
                 </h5>
               </div>
             </div>

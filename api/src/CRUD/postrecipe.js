@@ -1,4 +1,4 @@
-const { Recipe, Diets } = require("../db");
+const { Recipe } = require("../db");
 
 const postRecipe = (req, res, next) => {
   const { title, summary, score, healthscore, dishtypes, instructions, image, diets } = req.body;
@@ -13,10 +13,11 @@ const postRecipe = (req, res, next) => {
     image,
   };
 
+  
   Recipe.create(recipeDB)
-    .then((recipeDB) => {
-      recipeDB.addDiets(diets);
-      res.json({ ...recipeDB, diets });
+  .then((recipeDB) => {
+    recipeDB.addDiets(diets);
+    res.json({ ...recipeDB, diets });
     })
     .catch((error) => next(error));
 };

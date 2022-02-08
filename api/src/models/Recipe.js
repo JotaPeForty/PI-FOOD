@@ -13,27 +13,50 @@ module.exports = (sequelize) => {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        notEmpty: true
+      }
     },
     summary: {
       type: DataTypes.STRING,
+      validate: {
+        notEmpty: true
+      }
     },
     dishtypes: {
       type: DataTypes.STRING,
+      validate: {
+        notEmpty: true
+      }
     },
     score: {
       type: DataTypes.REAL,
+      validate: {
+        notEmpty: true,
+       // is: /^[a-z]+$/i,
+      }
 
     },
     healthscore: {
       type: DataTypes.REAL,
+      validate: {
+        notEmpty: true,
+        //is: /^[a-z]+$/i,
+      }
     },
     instructions: {
       type: DataTypes.STRING,
+      validate: {
+        notEmpty: true
+      }
   
     },
     image: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        notEmpty: true
+      }
     },
     createdInDb: {
       type: DataTypes.BOOLEAN,

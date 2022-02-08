@@ -21,8 +21,8 @@ function FormRecipe() {
   const [form, setForm] = useState(dataForm);
 
   const [namesDiet, setNamesDiet] = useState([]);
-  const [errors, setErrors] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [errors, setErrors] = useState(false);  // eslint-disable-line
+  const [success, setSuccess] = useState(false);  // eslint-disable-line
 
 
   
@@ -39,31 +39,41 @@ function FormRecipe() {
       form.diets
     ) {
     dispatch(createRecipe(form));
-    setErrors(false);
     setSuccess(true);
+    setErrors(false);
     setForm(dataForm);
     setNamesDiet([]);
   } else {
     setSuccess(false);
     setErrors(true);
   }
-  };
+};
 
+// console.log("form=>", form);
+  
+  // console.log("index=>", namesDiet);
   const handleSelect = (e) => {
     let index = e.target.selectedIndex;
-if(!namesDiet.includes(e.target.options[index].text)){
-  setNamesDiet((names) => [...names, e.target.options[index].text]);
-  setForm((form) => ({
-    ...form,
-    diets: [...form.diets, e.target.value],
-  }));
-}else{
-  setNamesDiet(namesDiet.filter(name=> name !== e.target.options[index].text))
-  setForm((form) => ({
-    ...form,
-    diets: form.diets.filter(id=> id !== e.target.value),
-  }));
+    if(!namesDiet.includes(e.target.options[index].text)){
+      setNamesDiet((names) => [...names, e.target.options[index].text]);
+      setForm((form) => ({
+        ...form,
+        diets: [...form.diets, e.target.value],
+      }));
+    }else{
+      setNamesDiet(namesDiet.filter(name=> name !== e.target.options[index].text))
+      setForm((form) => ({
+        ...form,
+        diets: form.diets.filter(id=> id !== e.target.value),
+      }));
+    }
   }
+  
+  const handleSteps = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
   }
   
   
@@ -102,14 +112,14 @@ if(!namesDiet.includes(e.target.options[index].text)){
             name="image"
             type="text"
           />
-            <input
+            {/* <input
               className={s.inputN}
               value={form.dishtypes}
               onChange={(e)=>handleOnChange(e)}
               placeholder="Dish Types"
               name="dishtypes"
               type="text"
-            />
+            /> */}
             </div>
           <div className={s.divscore}>
             <input
@@ -140,22 +150,22 @@ if(!namesDiet.includes(e.target.options[index].text)){
           <label>Instructions</label>
           <input
             className={s.input}
-            value={form.instructions}
-            onChange={(e)=>handleOnChange(e)}
-            placeholder="Step One"
-            name="Step1"
+            value={form.steps}
+            onChange={(e)=>handleSteps(e)}
+            placeholder="instructions"
+            name="instructions"
             type="text"
           />
-          {dataForm.instructions.length===1? 
+          {/* {dataForm.instructions.length===1? 
           <input
             className={s.input}
-            value={form.instructions}
-            onChange={(e)=>handleOnChange(e)}
+            value={form.steps}
+            onChange={(e)=>handleSteps(e)}
             placeholder="Step Two"
-            name="Step2"
+            name="steps"
             type="text"
-          />:""
-          }
+          />: ""
+          } */}
 
           <div className={s.check}>
             <select className={s.input} onChange={handleSelect}>

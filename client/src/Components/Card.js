@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import s from "../Module.css/Card.module.css";
 import { FcApproval, FcLike } from "react-icons/fc";
 
-const Card = ({ image, title, score, healthscore, id, diets }) => {
+const Card = ({ image, title, score, healthscore, id, diets, dbDiets }) => {
   return (
     <div key={id} className={s.card}>
         <p className={s.title}>{title}</p>
@@ -13,9 +13,11 @@ const Card = ({ image, title, score, healthscore, id, diets }) => {
         </NavLink>
         <hr />
           <div className={s.diet}>
-            {diets.map((e) => (
+            {(typeof diets[0] === "string")?diets.map((e) => (
               <p className={s.pp}>{e}</p>
-            ))}
+            )):
+            dbDiets.map((e) => (
+              <p className={s.pp}>{e.name}</p>))}
           </div>
       </div>
         <div className={s.number}>
