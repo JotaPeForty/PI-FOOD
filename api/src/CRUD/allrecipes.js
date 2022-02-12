@@ -11,13 +11,7 @@ const allRecipes = async (req, res, next) => {
       )
     ).data.results;
 
-    // let dbRecipe = await Recipe.findAll({
-    //            model: Diets,
-    //            attributes: ["name"],
-    //          include: {
-    //            through: { attributes: [] },
-    //          },
-    //        });
+         
     allInfo = apiRecipes.map((e) => {
       return {
         id: e.id,
@@ -29,17 +23,24 @@ const allRecipes = async (req, res, next) => {
       };
     });
 
+    let dbRecipe = await Recipe.findAll({ 
+      include: {
+      model: Diets,
+      attributes: ["name"],
+      through: { attributes: [] },
+    }});
+
+    
 
            //const allRecipes = allInfo.concat(dbRecipe);
            
 
-    let dbRecipe = await Recipe.findAll({ include: Diets});
     let allRecipes = dbRecipe.concat(allInfo);
-   //console.log("esto trae",dbRecipe)
+  //  console.log("esto trae",dbRecipe)
     
     res.status(200).send(allRecipes);
   } catch (err) {
-    next(err);
+    console.error(err);
   }
 };
 

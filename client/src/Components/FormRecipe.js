@@ -10,10 +10,8 @@ function FormRecipe() {
     title: "",
     score: "",
     healthscore: "",
-    dishtypes: [],
     image: "",
     summary: "",
-    instructions: [],
     diets: [],
   }
   
@@ -33,9 +31,7 @@ function FormRecipe() {
       form.image &&
       form.score &&
       form.healthscore &&
-      form.dishtypes &&
       form.summary &&
-      form.instructions &&
       form.diets
     ) {
     dispatch(createRecipe(form));
@@ -49,9 +45,6 @@ function FormRecipe() {
   }
 };
 
-// console.log("form=>", form);
-  
-  // console.log("index=>", namesDiet);
   const handleSelect = (e) => {
     let index = e.target.selectedIndex;
     if(!namesDiet.includes(e.target.options[index].text)){
@@ -67,13 +60,6 @@ function FormRecipe() {
         diets: form.diets.filter(id=> id !== e.target.value),
       }));
     }
-  }
-  
-  const handleSteps = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
   }
   
   
@@ -103,7 +89,6 @@ function FormRecipe() {
             name="title"
             type="text"
           />
-          <div className={s.divscore}>
           <input
             className={s.inputN}
             value={form.image}
@@ -112,15 +97,6 @@ function FormRecipe() {
             name="image"
             type="text"
           />
-            {/* <input
-              className={s.inputN}
-              value={form.dishtypes}
-              onChange={(e)=>handleOnChange(e)}
-              placeholder="Dish Types"
-              name="dishtypes"
-              type="text"
-            /> */}
-            </div>
           <div className={s.divscore}>
             <input
               className={s.inputN}
@@ -147,26 +123,6 @@ function FormRecipe() {
             name="summary"
             type="text"
           />
-          <label>Instructions</label>
-          <input
-            className={s.input}
-            value={form.steps}
-            onChange={(e)=>handleSteps(e)}
-            placeholder="instructions"
-            name="instructions"
-            type="text"
-          />
-          {/* {dataForm.instructions.length===1? 
-          <input
-            className={s.input}
-            value={form.steps}
-            onChange={(e)=>handleSteps(e)}
-            placeholder="Step Two"
-            name="steps"
-            type="text"
-          />: ""
-          } */}
-
           <div className={s.check}>
             <select className={s.input} onChange={handleSelect}>
               <option hidden selected>Diets</option>

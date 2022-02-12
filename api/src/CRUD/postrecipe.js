@@ -1,18 +1,15 @@
 const { Recipe } = require("../db");
 
 const postRecipe = (req, res, next) => {
-  const { title, summary, score, healthscore, dishtypes, instructions, image, diets } = req.body;
+  const { title, summary, score, healthscore,image, diets } = req.body;
 
   let recipeDB = {
     title,
-    summary,
     score,
     healthscore,
-    dishtypes,
-    instructions,
     image,
+    summary,
   };
-
   
   Recipe.create(recipeDB)
   .then((recipeDB) => {

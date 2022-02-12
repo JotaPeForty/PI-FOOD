@@ -49,12 +49,6 @@ console.log("RECIPE db =>", recipe.diets)
                 <img className={s.img} src={recipe.image} alt="" />
               </div>
               <div className={s.container5}>
-                <h5 className={s.h5}>
-                  {recipe.dishtypes?.map((e) => (
-                    <p>{e}</p>
-                  ))}
-                </h5>
-                <br/>
                 <div className={s.contscore}>
                   <p>
                     <FcLike />
@@ -67,16 +61,15 @@ console.log("RECIPE db =>", recipe.diets)
                 </div>
                 <br/>
                 <h5 className={s.diet}>
-                  {Array.isArray(recipe.diets[0])?
-                  "":
+                  {(typeof recipe.diets[0] === "string")?
                     recipe.diets.map((e) => (
                     <p>{e}</p>
-                  ))}
-                  
-                  {/* arrayDiets.map((e) => (
-                    <p>{e}</p>
                   ))
-                  }   */}
+                  :
+                  recipe.diets.map((e) => (
+                    <p>{e.name}</p>
+                  ))
+                  }  
                 </h5>
               </div>
             </div>
@@ -84,13 +77,6 @@ console.log("RECIPE db =>", recipe.diets)
             <hr/>
             <article>{recipe.summary.replace(/<[^>]*>?/g, "")}</article>
             <hr/>
-            <p>
-              {recipe.instructions?.map((e) => (
-                <li key={e.number}>
-                 <b> Step {e.number}:</b> {e.content}
-                </li>
-              ))}
-            </p>
           </div>
           <br />
           </div>
