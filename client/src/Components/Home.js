@@ -11,7 +11,6 @@ import {
 } from "../Redux/Actions/index";
 import Card from "./Card";
 import Paginado from "./Paginado";
-import Footer from "./Footer";
 import s from "../Module.css/Home.module.css";
 
 function Home() {
@@ -68,7 +67,7 @@ function Home() {
 
   return (
     <div className={s.home}>
-      <div>
+      <div className={s.barra}>
         <div>
           <div className={s.select}>
             <select
@@ -151,7 +150,6 @@ function Home() {
         <br />
         <br />
       </div>
-      <Footer />
     </div>
   );
 }

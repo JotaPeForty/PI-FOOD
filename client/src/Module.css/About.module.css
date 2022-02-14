@@ -1,20 +1,38 @@
 .container {
   background-image: url(../Img/wood.jpg);
-  height: 90.5vh;
+  height: 84.1vh;
   background-size: cover;
   background-repeat: no-repeat;
-  text-align: center;
   color:white;
+  overflow: hidden;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.container_text{
+  text-align: left;
   font-size: 2rem;
   font-family: "Handlee", cursive;
   font-style: oblique;
   font-weight: bold;
-  overflow: hidden;
+  padding-top: 10rem;
+  margin-left: 15rem;
+
+}
+.cont{
+  margin-top: 18rem;
 }
 
+.container_logos{
+  font-size: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
 
 .icon {
-    margin-right: 3rem;
+    /* margin-right: 3rem; */
     font-size: 45px;
   }
 

@@ -11,7 +11,7 @@ const Card = ({ image, title, score, healthscore, id, diets }) => {
         <NavLink to={`/recipe/${id}`}>
           <img className={s.img} src={image} alt={title} />
         </NavLink>
-        <hr />
+
           <div className={s.diet}>
             {(typeof diets[0] === "string")?diets.map((e) => (
               <p className={s.pp}>{e}</p>

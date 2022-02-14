@@ -1,21 +1,22 @@
 .navbar {
     background-color: #3a3735;
-    display: grid;
-    grid-template-columns: 10% 10% 10% 30% 40%;
+    height: 6rem;
+    display: flex;
     font-family: "Covered By Your Grace", cursive;
     text-align: center;
-
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid rgb(160, 158, 158);
+    width: 100%;
+    position: fixed;
 }
 
+
 .h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     margin: 0;
     color: white;
-    color: #FFFFFF;
-    background: #3a3735;
-    text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
-    color: #FFFFFF;
-    background: #3a3735;
+    text-shadow: 0 1px 0 #535353, 0 2px 0 #666666, 0 3px 0 rgb(109, 108, 108), 0 4px 0 #979797, 0 5px 0 rgb(139, 139, 139), 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15), 2px 2px 2px rgba(206,89,55,0);
 }
 
 .home,
@@ -28,15 +29,18 @@
     margin: 1rem;
     border: 1px solid;
     color: white;
-    border-radius: 1rem;
+    border-radius: 0.7rem;
     text-align: center;
+    padding: 0.3rem 1rem 0.3rem 1rem;
 }
 
 .home:hover,
 .create:hover,
 .about:hover {
     background-color: rgba(255, 255, 255, 0.75);
-    color: black;
+    color: #3a3735;
+    font-weight: bold;
+    
 }
 
 .home:active,

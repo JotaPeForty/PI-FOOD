@@ -4,8 +4,22 @@ import s from "../Module.css/Footer.module.css";
 function Footer() {
   return (
     <div className={s.container}>
-      <p className={s.text}> Henry 2001 | SuraStudio © </p>
-      
+        <div>
+          <a className={s.text} href="https://www.soyhenry.com/">
+            Henry 2021
+          </a>
+        </div>
+
+        <div>
+        <a className={s.text} href="https://sura.studio">
+          SuraStudio ©
+        </a>
+        </div>
+        <div>
+        <a className={s.text} href="https://juanpablobenavente.ar">
+          JotaPe  ©
+        </a>
+        </div>
     </div>
   );
 }

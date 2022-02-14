@@ -3,33 +3,41 @@
   background-size: cover;
   justify-content: center bottom;
   text-align: center;
+  overflow: hidden;
+  padding-top: 8rem;
+  width: 100%;
+  height: 100vmax;
+}
+
+.barra{
+  margin-bottom:1rem;
 }
 
 .filtroscore,
 .filtrodiets,
-.filtroorden{
-    margin: 0 1rem 0 1rem;
-    height: 1.5rem;
-    border-radius: 1rem;
-    font-family: 'Handlee', cursive;
-    font-weight: bold;
-    text-align: center;
+.filtroorden {
+  margin: 0 1rem 0 1rem;
+  height: 1.5rem;
+  border-radius: 0.5rem;
+  font-family: 'Handlee', cursive;
+  font-weight: bold;
+  text-align: center;
 }
 
-.select{
+.select {
   display: flex;
   justify-content: center;
 }
 
 .recarga {
-    height: 2rem;
-    width: 30rem;
-    margin: 1rem;
-    border-radius: 1rem;
-    font-size: 1.2rem;
-    font-family: 'Handlee', cursive;
-    font-style: oblique;
-    font-weight: bold;
+  height: 2rem;
+  width: 30rem;
+  margin: 1rem;
+  border-radius: 0.7rem;
+  font-size: 1.2rem;
+  font-family: 'Handlee', cursive;
+  font-style: oblique;
+  font-weight: bold;
 }
 
 .pag_button {
@@ -37,9 +45,10 @@
 }
 
 .container {
-  padding: 1px;
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* display: grid;
   grid-template-columns: 33% 33% 33%;
-  grid-template-rows: 33% 33% 33%;
-  gap: 10px;
+  grid-template-rows: 33% 33% 33%; */
 }
