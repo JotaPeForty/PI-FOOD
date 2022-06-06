@@ -4,8 +4,9 @@
   background-position: top center;
   display: flex;
   justify-content: center;
-  background-position-y: center;
+  background-position-y: bottom;
   height: 100vh;
+  overflow: hidden;
 }
 
 .link {

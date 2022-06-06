@@ -10,9 +10,19 @@ function Recipes(props) {
   const recipe = useSelector((state) => state.recipe);
   const dispatch = useDispatch();
   const history = useHistory();
-  //console.log(" ESTO TRAE ID", id)
-  //console.log(" ESTO TRAE RECIPE", recipe)
 
+//   let arrayDiets = [];
+//   if(typeof (recipe.diets[0] === "object")){
+//   arrayDiets = recipe.diets.map((e)=> e.name);
+// }
+  //console.log(" ESTO TRAE ID", id)
+  // console.log("RECIPE e =>", recipe.diets.map((e)=> e))
+  //console.log("RECIPE api =>", recipe.diets)
+  //console.log("RECIPE api V=>", Array.isArray(recipe.diets))
+console.log("RECIPE db =>", recipe.diets)
+  
+  //console.log("RECIPE db V=>", recipe.diets.map((e)=>Object.values(e)))
+ 
   useEffect(() => {
     dispatch(getRecipe(id));
     return () => {
@@ -39,12 +49,6 @@ function Recipes(props) {
                 <img className={s.img} src={recipe.image} alt="" />
               </div>
               <div className={s.container5}>
-                <h5 className={s.h5}>
-                  {recipe.dishtypes?.map((e) => (
-                    <p>{e}</p>
-                  ))}
-                </h5>
-                <br/>
                 <div className={s.contscore}>
                   <p>
                     <FcLike />
@@ -57,9 +61,15 @@ function Recipes(props) {
                 </div>
                 <br/>
                 <h5 className={s.diet}>
-                  {recipe?.diets?.map((e) => (
+                  {(typeof recipe.diets[0] === "string")?
+                    recipe.diets.map((e) => (
                     <p>{e}</p>
-                  ))}
+                  ))
+                  :
+                  recipe.diets.map((e) => (
+                    <p>{e.name}</p>
+                  ))
+                  }  
                 </h5>
               </div>
             </div>
@@ -67,13 +77,6 @@ function Recipes(props) {
             <hr/>
             <article>{recipe.summary.replace(/<[^>]*>?/g, "")}</article>
             <hr/>
-            <span>
-              {recipe.instructions?.map((e) => (
-                <li key={e.number}>
-                 <b> Step {e.number}:</b> {e.content}
-                </li>
-              ))}
-            </span>
           </div>
           <br />
           </div>

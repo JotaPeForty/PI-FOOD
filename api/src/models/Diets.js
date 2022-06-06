@@ -7,9 +7,6 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      // name:{
-      //     type: DataTypes.ARRAY(DataTypes.STRING),
-      // }
     },
     { timestamps: false }
   );

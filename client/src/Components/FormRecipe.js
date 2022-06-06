@@ -1,226 +1,159 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-//import { useHistory } from "react-router";
-import { createRecipe, getDiets,  } from "../Redux/Actions/index";
-// import Select from "react-select";
+import { createRecipe, getDiets } from "../Redux/Actions/index";
 import s from "../Module.css/FormRecipe.module.css";
+import { useHistory } from "react-router-dom";
 
 function FormRecipe() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const diets = useSelector((state) => state.diets);
-  //const dishtypes = useSelector((state) => state.dishtypes);
-  
-  //const history = useHistory();
-  const [form, setForm] = useState({
+  let dataForm = {
     title: "",
     score: "",
     healthscore: "",
-    dishtypes: [],
     image: "",
     summary: "",
-    instructions: [],
-    steps: [],
     diets: [],
-  });
+  };
 
-  useEffect(() => {
-    dispatch(getDiets());
-  }, [dispatch]);
-  
-  // useEffect(() => {
-  //   dispatch(getDishTypes());
-  // }, [dispatch]);
+  const [form, setForm] = useState(dataForm);
 
-  // const goToBack = () => {
-  //   history.goBack();
-  // };
+  const [namesDiet, setNamesDiet] = useState([]);
+  const [errors, setErrors] = useState(false); // eslint-disable-line
+  const [success, setSuccess] = useState(false); // eslint-disable-line
 
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(createRecipe(form));
-    setForm({
-      title: "",
-      score: "",
-      healthscore: "",
-      dishtypes: [],
-      image: "",
-      summary: "",
-      instructions: [],
-      steps:[],
-      diets: [],
-    });
+    if (
+      form.title &&
+      form.image &&
+      form.score &&
+      form.healthscore &&
+      form.summary &&
+      form.diets
+    ) {
+      dispatch(createRecipe(form));
+      setSuccess(true);
+      setErrors(false);
+      setForm(dataForm);
+      setNamesDiet([]);
+      history.push("/home");
+      window.location.reload();
+    } else {
+      setSuccess(false);
+      setErrors(true);
+    }
   };
 
+
+  const handleSelect = (e) => {
+    let index = e.target.selectedIndex;
+    if (!namesDiet.includes(e.target.options[index].text)) {
+      setNamesDiet((names) => [...names, e.target.options[index].text]);
+      setForm((form) => ({
+        ...form,
+        diets: [...form.diets, e.target.value],
+      }));
+    } else {
+      setNamesDiet(
+        namesDiet.filter((name) => name !== e.target.options[index].text)
+      );
+      setForm((form) => ({
+        ...form,
+        diets: form.diets.filter((id) => id !== e.target.value),
+      }));
+    }
+  };
+
+  const onClose = (e) => {
+    namesDiet.filter((ele) => ele !== e.target.name);
+    console.log(e.target.name);
+  };
 
   const handleOnChange = (e) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     });
-  }
-  
+  };
 
+  useEffect(() => {
+    dispatch(getDiets());
+  }, [dispatch]);
 
-  
-  // const handleOnChange2 = (e) => {
-  //   const name = e.target.name;
-  //   setForm(Object.assign(
-  //     form,
-  //     form[name].push(e.target.value),
-  //   ));
-  // };
-  //  console.log("esto trae form", form);
-  // console.log("form.diets == ", form.diets);
-
-  // const options = [
-  //   { value: "gluten free", label: "gluten free" },
-  //   { value: "ketogenic", label: "ketogenic" },
-  //   { value: "dairy free", label: "dairy free" },
-  //   { value: "vegetarian", label: "vegetarian" },
-  //   { value: "lacto ovo vegetarian", label: "lacto ovo vegetarian" },
-  //   { value: "fodmap friendly", label: "fodmap friendly" },
-  //   { value: "vegan", label: "vegan" },
-  //   { value: "pescatarian", label: "pescatarian" },
-  //   { value: "paleolithic", label: "paleolithic" },
-  //   { value: "primal", label: "primal" },
-  //   { value: "whole 30", label: "whole 30" },
-  // ];
-  
-
-  // const handleOnChangeEspecial = (e) => {
-  //   if (form.diets.includes(e.target.value)) {
-  //     let newRecipe = form.diets.filter((ep) => ep !== e.target.value);
-  //     setForm({
-  //       ...form,
-  //       diets: newRecipe,
-  //     });
-  //   } else {
-  //     setForm({
-  //       ...form,
-  //       diets: [...form.diets, e.target.value],
-  //     });
-  //   }
-  // };
   return (
     <div className={s.container}>
       <br />
       <br />
       <div className={s.container2}>
         <h1 className={s.h1}>Create Recipes</h1>
-        {/* <button onClick={goToBack}>Return</button> */}
         <form className={s.form} method="post" onSubmit={onSubmit}>
-          <label>Title</label>
           <input
             className={s.input}
             value={form.title}
-            onChange={(e)=>handleOnChange(e)}
+            onChange={(e) => handleOnChange(e)}
+            placeholder="Title"
             name="title"
             type="text"
           />
-          <label>Images</label>
           <input
             className={s.input}
             value={form.image}
-            onChange={(e)=>handleOnChange(e)}
+            onChange={(e) => handleOnChange(e)}
+            placeholder="Url Image"
             name="image"
             type="text"
           />
-          <div className={s.divscore}>
-            <label>Score </label>
+          <div>
             <input
               className={s.inputN}
               value={form.score}
-              onChange={(e)=>handleOnChange(e)}
+              onChange={(e) => handleOnChange(e)}
+              placeholder="Score"
               name="score"
               type="text"
             />
-            <label> Health Score </label>
             <input
               className={s.inputN}
               value={form.healthscore}
-              onChange={(e)=>handleOnChange(e)}
+              onChange={(e) => handleOnChange(e)}
+              placeholder="Health Score"
               name="healthscore"
               type="text"
             />
           </div>
-          <label> Dish Types </label>
-            <input
-              className={s.input}
-              value={form.dishtypes}
-              onChange={(e)=>handleOnChange(e)}
-              name="dishtypes"
-              type="text"
-            />
-          {/* <div className={s.check}>
-          {dishtypes?.map((e) => (
-                <label key={e}>
-                  <input
-                    className={s.inputcheck}
-                    onChange={(e) => handleOnChange2(e)}
-                    type="checkbox"
-                    name="dishtypes"
-                    key={e}
-                    value={e}
-                    />
-                  {e}
-                </label>
-              ))}
-              </div> */}
-          <label>Summary</label>
-          <input
-            className={s.input}
+          <textarea
+            className={s.inputex}
             value={form.summary}
-            onChange={(e)=>handleOnChange(e)}
+            onChange={(e) => handleOnChange(e)}
+            placeholder="Detailed step by step recipe"
             name="summary"
             type="text"
           />
-          <label>Instructions</label>
-          <input
-            className={s.input}
-            value={form.instructions}
-            onChange={(e)=>handleOnChange(e)}
-            name="instructions"
-            type="text"
-          />
-          {/* <label>Steps</label>
-          <input
-            className={s.input}
-            value={form.steps}
-            onChange={(e)=>handleOnChange(e)}
-            name="steps"
-            type="text"
-          /> */}
           <div className={s.check}>
-            {/* <Select
-            //value={form.diets}
-              onChange={handleOnChange}
-              isMulti
-              name="diets"
-              options={options}
-              className="basic-multi-select"
-              classNamePrefix="select"
-            /> */}
-
-            {/* <select onChange={handleOnChange} name="diets" multiple size="11">
-              {diets.map((e) => (
-                <option key={e.id} value={e.name} >
+            <select className={s.input} onChange={handleSelect}>
+              <option hidden selected>
+                Diets
+              </option>
+              {diets?.map((e) => (
+                <option key={e.id} value={e.id}>
                   {e.name}
                 </option>
               ))}
-            </select> */}
-            {diets?.map((e) => (
-                <label key={e.id}>
-                  <input
-                    className={s.inputcheck}
-                    onChange={(e) => handleOnChange(e)}
-                    type="checkbox"
-                    name="diets"
-                    key={e.id}
-                    value={e.id}
-                    />
-                  {e.name}
-                </label>
+            </select>
+          </div>
+          <div>
+            <div className={s.diet}>
+              {namesDiet?.map((e, i) => (
+                <p className={s.diet2} key={i}>
+                  {e}
+                  <button className={s.buttonx} onClick={onClose} name={e}>
+                    x{" "}
+                  </button>
+                </p>
               ))}
+            </div>
           </div>
           <br />
           <input className={s.button} type="submit" value="Create" />
