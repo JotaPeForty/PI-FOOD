@@ -17,9 +17,6 @@ module.exports = (sequelize) => {
     summary: {
       type: DataTypes.STRING,
     },
-    dishtypes: {
-      type: DataTypes.STRING,
-    },
     // dishtypes: {
     //   type: DataTypes.ARRAY(DataTypes.STRING),
     //   allowNull: false,
@@ -33,7 +30,6 @@ module.exports = (sequelize) => {
     },
     instructions: {
       type: DataTypes.STRING,
-  
     },
     image: {
       type: DataTypes.STRING,

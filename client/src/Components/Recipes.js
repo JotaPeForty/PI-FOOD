@@ -67,13 +67,13 @@ function Recipes(props) {
             <hr/>
             <article>{recipe.summary.replace(/<[^>]*>?/g, "")}</article>
             <hr/>
-            <p>
+            <span>
               {recipe.instructions?.map((e) => (
                 <li key={e.number}>
                  <b> Step {e.number}:</b> {e.content}
                 </li>
               ))}
-            </p>
+            </span>
           </div>
           <br />
           </div>

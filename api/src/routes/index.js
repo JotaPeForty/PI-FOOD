@@ -3,6 +3,7 @@ const { Router } = require('express');
 const recipes = require('./recipes')
 const diets = require('./diets')
 const dishtypes = require('./dishtypes')
+const steps = require('./steps')
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -15,5 +16,6 @@ const router = Router();
 router.use("/recipes", recipes);
 router.use("/diet", diets)
 router.use("/dishtypes", dishtypes)
+router.use("/steps", steps)
 
 module.exports = router;

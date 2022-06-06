@@ -8,7 +8,7 @@ import {
   FILTER_DIETS,
   GET_RECIPE_SEARCH,
   ORDER_SCORE,
-  GET_DISHTYPES
+  GET_DISHTYPES,
 } from "../Actions/index";
 
 const inicialState = {
@@ -16,7 +16,6 @@ const inicialState = {
   recipe: [],
   diets: [],
   dishtypes: [],
-
 };
 
 export default function reducer(state = inicialState, { type, payload }) {
@@ -26,10 +25,10 @@ export default function reducer(state = inicialState, { type, payload }) {
         ...state,
         recipes: payload,
       };
-      case CREATE_RECIPE:
-        return {
-          ...state,
-          recipes: payload,
+    case CREATE_RECIPE:
+      return {
+        ...state,
+        recipes: payload,
       };
     case GET_DIETS:
       return {
@@ -54,7 +53,6 @@ export default function reducer(state = inicialState, { type, payload }) {
     case REMOVE_RECIPE:
       return {
         ...state,
-        
       };
     case FILTER_DIETS:
       const allRecipe = state.recipes;
@@ -62,58 +60,60 @@ export default function reducer(state = inicialState, { type, payload }) {
         payload === "all"
           ? allRecipe
           : allRecipe.filter((e) => e.diets.includes(payload));
-          return {
-            ...state,
-            recipes: dietsFilter,
+      return {
+        ...state,
+        recipes: dietsFilter,
       };
-      case ORDER_NAME:
-        let orderName = payload ==="az"?
-        state.recipes.sort(function(a,b) {
-          if(a.title > b.title){
-            return 1;
-          }
-          if (a.title < b.title){
-          return -1;
-          }
-          return 0
-        }):
-        state.recipes.sort(function(a,b) {
-          if(a.title > b.title){
-            return -1;
-          }
-          if (a.title < b.title){
-          return 1;
-          }
-          return 0
-        })
-        return{
-          ...state,
-          recipes: orderName
-        }
-      case ORDER_SCORE:
-        let orderScore = payload ==="asc"?
-        state.recipes.sort(function(a,b) {
-          if(a.score > b.score){
-            return 1;
-          }
-          if (a.score < b.score){
-          return -1;
-          }
-          return 0
-        }):
-        state.recipes.sort(function(a,b) {
-          if(a.score > b.score){
-            return -1;
-          }
-          if (a.score < b.score){
-          return 1;
-          }
-          return 0
-        })
-        return{
-          ...state,
-          recipes: orderScore
-        }
+    case ORDER_NAME:
+      let orderName =
+        payload === "az"
+          ? state.recipes.sort(function (a, b) {
+              if (a.title > b.title) {
+                return 1;
+              }
+              if (a.title < b.title) {
+                return -1;
+              }
+              return 0;
+            })
+          : state.recipes.sort(function (a, b) {
+              if (a.title > b.title) {
+                return -1;
+              }
+              if (a.title < b.title) {
+                return 1;
+              }
+              return 0;
+            });
+      return {
+        ...state,
+        recipes: orderName,
+      };
+    case ORDER_SCORE:
+      let orderScore =
+        payload === "asc"
+          ? state.recipes.sort(function (a, b) {
+              if (a.score > b.score) {
+                return 1;
+              }
+              if (a.score < b.score) {
+                return -1;
+              }
+              return 0;
+            })
+          : state.recipes.sort(function (a, b) {
+              if (a.score > b.score) {
+                return -1;
+              }
+              if (a.score < b.score) {
+                return 1;
+              }
+              return 0;
+            });
+      return {
+        ...state,
+        recipes: orderScore,
+      };
 
     default:
       return state;

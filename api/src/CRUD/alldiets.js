@@ -1,7 +1,7 @@
 require("dotenv").config();
 const { API_KEY } = process.env;
 const axios = require("axios");
-const e = require("express");
+//const e = require("express");
 
 const allDiets = async (req, res, next) => {
   try {

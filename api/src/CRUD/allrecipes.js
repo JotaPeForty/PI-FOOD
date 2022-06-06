@@ -35,7 +35,7 @@ const allRecipes = async (req, res, next) => {
 
     let dbRecipe = await Recipe.findAll({ include: Diets});
     let allRecipes = dbRecipe.concat(allInfo);
-   //console.log("esto trae",dbRecipe)
+   console.log("esto trae",dbRecipe)
     
     res.status(200).send(allRecipes);
   } catch (err) {

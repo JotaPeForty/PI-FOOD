@@ -1,7 +1,7 @@
 require("dotenv").config();
 const { API_KEY } = process.env;
 const axios = require("axios");
-const e = require("express");
+//const e = require("express");
 
 const allDishTypes = async (req, res, next) => {
   try {
@@ -11,13 +11,13 @@ const allDishTypes = async (req, res, next) => {
       )
     ).data.results;
     
-    console.log(apiRecipes) 
+    //console.log(apiRecipes) 
     let allDishType = apiRecipes.map((e) => {
       return {
-        dishTypes: e.dishTypes,
+        dishtypes: e.dishTypes,
       };
     });
-    console.log(allDishType) 
+    //console.log(allDishType) 
 
     let data = allDishType.map((e)=>Object.values(e)).flat(2)
 
@@ -25,7 +25,7 @@ const allDishTypes = async (req, res, next) => {
         return data.indexOf(item) === index;
       })
 
-      console.log(result)
+      //console.log(result)
 
     res.send(result);
   } catch (err) {

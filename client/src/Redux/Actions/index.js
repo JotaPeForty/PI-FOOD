@@ -14,7 +14,7 @@ export const GET_DISHTYPES = "GET_DISHTYPES";
 export const createRecipe = (recipe) => {
   return (dispatch) => {
     axios
-      .post(`http://localhost:3001/recipes/create`, recipe)
+      .post(`/recipes/create`, recipe)
       .then((response) => {
         return dispatch({
           type: CREATE_RECIPE,
@@ -29,7 +29,7 @@ export const createRecipe = (recipe) => {
 export const getRecipes = () => {
   return (dispatch) => {
     axios
-      .get(`http://localhost:3001/recipes`)
+      .get(`/recipes`)
       .then((recipes) => {
         return dispatch({
           type: GET_ALL_RECIPES,
@@ -45,7 +45,7 @@ export const getRecipes = () => {
 export const getDiets = () => {
   return async (dispatch) => {
     try {
-      const diets = await axios.get(`http://localhost:3001/diet/type`);
+      const diets = await axios.get(`/diet/type`);
       return dispatch({
         type: GET_DIETS,
         payload: diets.data,
@@ -58,7 +58,7 @@ export const getDiets = () => {
 export const getDishTypes = () => {
   return async (dispatch) => {
     try {
-      const dishtypes = await axios.get(`http://localhost:3001/dishtypes`);
+      const dishtypes = await axios.get(`/dishtypes`);
       return dispatch({
         type: GET_DISHTYPES,
         payload: dishtypes.data,
@@ -74,7 +74,7 @@ export const getRecipe = (id) => {
   return async (dispatch) => {
     try {
       const idRecipe = await axios.get(
-        `http://localhost:3001/recipes/id/${id}`
+        `/recipes/id/${id}`
         );
       return dispatch({
         type: GET_RECIPE,
@@ -90,7 +90,7 @@ export const getRecipeSearch = (name) => {
   return async (dispatch) => {
     try {
       const searchName = await axios.get(
-        `http://localhost:3001/recipes/${name}`
+        `/recipes/${name}`
       );
       return dispatch({
         type: GET_RECIPE_SEARCH,

@@ -18,7 +18,8 @@ function FormRecipe() {
     dishtypes: [],
     image: "",
     summary: "",
-    instructions: "",
+    instructions: [],
+    steps: [],
     diets: [],
   });
 
@@ -44,7 +45,8 @@ function FormRecipe() {
       dishtypes: [],
       image: "",
       summary: "",
-      instructions: "",
+      instructions: [],
+      steps:[],
       diets: [],
     });
   };
@@ -165,7 +167,7 @@ function FormRecipe() {
               ))}
               </div> */}
           <label>Summary</label>
-          <textarea
+          <input
             className={s.input}
             value={form.summary}
             onChange={(e)=>handleOnChange(e)}
@@ -173,13 +175,21 @@ function FormRecipe() {
             type="text"
           />
           <label>Instructions</label>
-          <textarea
+          <input
             className={s.input}
             value={form.instructions}
             onChange={(e)=>handleOnChange(e)}
             name="instructions"
             type="text"
           />
+          {/* <label>Steps</label>
+          <input
+            className={s.input}
+            value={form.steps}
+            onChange={(e)=>handleOnChange(e)}
+            name="steps"
+            type="text"
+          /> */}
           <div className={s.check}>
             {/* <Select
             //value={form.diets}

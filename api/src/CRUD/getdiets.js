@@ -26,6 +26,9 @@ const preDiet = async () => {
     arrayDiets = await Promise.all(
       arrayDiets.map((e) => Diets.findOrCreate({ where: e }))
       );
+
+
+      
       
       return "Diets cargadas exitosamente";
     } catch (error) {
