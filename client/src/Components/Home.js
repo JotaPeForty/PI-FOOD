@@ -24,6 +24,8 @@ function Home() {
   const indexOfFirstRecipe = indexOflastRecipe - recipePerPage;
   const currentRecipe = recipes.slice(indexOfFirstRecipe, indexOflastRecipe);
 
+  console.log(recipes)
+
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };

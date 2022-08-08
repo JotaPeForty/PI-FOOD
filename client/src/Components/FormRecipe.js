@@ -68,7 +68,7 @@ function FormRecipe() {
 
   const onClose = (e) => {
     namesDiet.filter((ele) => ele !== e.target.name);
-    console.log(e.target.name);
+    //console.log(e.target.name);
   };
 
   const handleOnChange = (e) => {

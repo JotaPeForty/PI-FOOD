@@ -20,16 +20,14 @@
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
 const { preDiet } = require("./src/CRUD/getdiets");
-const { preDishtypes } = require("./src/CRUD/getdishtypes");
+
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(process.env.PORT, async () => {
-    console.log("%s Cargando Diets..."); // eslint-disable-line no-console
+  server.listen(process.env.PORT || 3001, async () => {
+    console.log("Loanding Diets.."); // eslint-disable-line no-console
     const preload = await preDiet();
-    console.log("%s ", preload);
-    const preload2 = await preDishtypes();
-    console.log("%s ", preload2);
-    console.log("%s listening at 3001"); // eslint-disable-line no-console
+    //console.log("%c", preload);
+     console.log(`%s listening at ${process.env.PORT || 3001}`); // eslint-disable-line no-console
   });
 });

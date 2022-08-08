@@ -1,25 +1,26 @@
 const { Diets } = require("../db");
 const axios = require("axios");
+const allDiets = require("./alldiets");
+const dotenv = require("dotenv");
+dotenv.config();
+
+axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 
 const preDiet = async () => {
   try {
-    let arrayDiets = await axios.get("http://localhost:3001/diet")
-    arrayDiets =arrayDiets.data
+    let arrayDiets = await axios.get("/diet")
+    arrayDiets = arrayDiets.data
   
     arrayDiets = arrayDiets.map((e) => {
       return {
         name: e,
       };
     });
-    // console.log("esto trae",arrayDiets.map((e) => {e.name}))
     
     arrayDiets = await Promise.all(
       arrayDiets.map((e) => Diets.findOrCreate({ where: e }))
       );
-
-
-      
-      
+ 
       return "Diets cargadas exitosamente";
     } catch (error) {
       return "No se pudo cargar las diets";
