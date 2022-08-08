@@ -7,7 +7,7 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.1",
     "@testing-library/user-event": "^12.2.2",
-    "axios": "^0.21.4",
+    "axios": "^0.27.1",
     "dotenv": "^8.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -16,9 +16,9 @@
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.0",
     "react-select": "^5.1.0",
-    "redux": "^4.1.1",
+    "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
-    "redux-thunk": "^2.3.0",
+    "redux-thunk": "^2.4.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
