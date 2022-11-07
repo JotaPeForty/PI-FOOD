@@ -37,7 +37,7 @@ function Home() {
 
   function handleClick(e) {
     e.preventDefault();
-    dispatch(getRecipes());
+    dispatch(document.location.reload());
   }
 
 
