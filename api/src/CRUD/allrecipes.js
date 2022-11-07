@@ -16,7 +16,7 @@ const allRecipes = async (req, res, next) => {
       return {
         id: e.id,
         title: e.title,
-        score: e.spoonacularScore,
+        score: e.aggregateLikes,
         healthscore: e.healthScore,
         image: e.image,
         diets: e.diets,
