@@ -30,7 +30,7 @@ export const createRecipe = (recipe) => {
 export const getRecipes = () => {
   return (dispatch) => {
     axios
-      .get(`/recipes`)
+      .get(`http://localhost:3001/recipes`)
       .then((recipes) => {
         return dispatch({
           type: GET_ALL_RECIPES,
