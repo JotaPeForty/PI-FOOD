@@ -12,6 +12,7 @@ export const ORDER_SCORE = "ORDER_SCORE";
 export const GET_DISHTYPES = "GET_DISHTYPES";
 export const FILTER_DB = "FILTER_DB";
 
+
 export const createRecipe = (recipe) => {
   return (dispatch) => {
     axios
@@ -30,7 +31,7 @@ export const createRecipe = (recipe) => {
 export const getRecipes = () => {
   return (dispatch) => {
     axios
-      .get(`http://localhost:3001/recipes`)
+      .get(`/recipes`)
       .then((recipes) => {
         return dispatch({
           type: GET_ALL_RECIPES,
