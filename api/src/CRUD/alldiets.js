@@ -3,7 +3,7 @@ const { API_KEY } = process.env;
 const axios = require("axios");
 
 
-const allDiets = async (req, res, next) => {
+const allDiets = async () => {
   
 
     let apiRecipes = (
@@ -12,24 +12,27 @@ const allDiets = async (req, res, next) => {
       )
     ).data.results;
 
-    //console.log("esto trae =>", apiRecipes);
-
-
+    
+    
     let allDiet = apiRecipes.map((e) => {
       return {
         diets: e.diets,
       };
     });
-
-    let data = allDiet.map((e)=>Object.values(e)).flat(2)
-
-    let result = data.filter((item,index)=>{
-        return data.indexOf(item) === index;
-      })
-
     
+    let data = allDiet.map((e)=>Object.values(e)).flat(2)
+    
+    let result = data.filter((item,index)=>{
+      return data.indexOf(item) === index;
+    })
+    
+    //console.log("esto trae =>", result);
+    
+    
+    return result
+  };
+  
 
-    res.send(result);
-};
+
 
 module.exports = { allDiets };

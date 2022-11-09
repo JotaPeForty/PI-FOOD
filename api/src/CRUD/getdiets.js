@@ -1,14 +1,17 @@
 const { Diets } = require("../db");
-const axios = require("axios");
-//const allDiets = require("./alldiets");
+// const axios = require("axios");
+const { allDiets } = require("./alldiets");
+
 
 
 
 
 const preDiet = async () => {
   try {
-    let arrayDiets = await axios.get("/diet")
-    arrayDiets = arrayDiets.data
+    let arrayDiets = await allDiets()
+
+    // let arrayDiets = await axios.get("http://localhost:3001/diet")
+    // arrayDiets = arrayDiets.data
   
     arrayDiets = arrayDiets.map((e) => {
       return {
