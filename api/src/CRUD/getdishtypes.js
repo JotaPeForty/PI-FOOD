@@ -1,5 +1,5 @@
 const { Dishtypes } = require("../db");
-//const { alldishtypes } = require("./alldishtype")
+
 
 const preDishtypes = async () => {
   try {
@@ -20,8 +20,7 @@ const preDishtypes = async () => {
       "spread"
     ]
 
-    //console.log("esto trae", arrayDishTypes)
-    //let arrayDishTypes = alldishtypes()
+  
 
     arrayDishTypes = arrayDishTypes.map((e) => {
       return {

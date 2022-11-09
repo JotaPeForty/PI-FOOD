@@ -27,7 +27,7 @@ conn.sync({ force: true }).then(() => {
   server.listen(process.env.PORT || 3001, async () => {
     console.log("Loanding Diets.."); // eslint-disable-line no-console
     const preload = await preDiet();
-    //console.log("%c", preload);
-     console.log(`%s listening at ${process.env.PORT || 3001}`); // eslint-disable-line no-console
+    console.log("%s", preload);
+     console.log(`%s listening at 3001`); // eslint-disable-line no-console
   });
 });

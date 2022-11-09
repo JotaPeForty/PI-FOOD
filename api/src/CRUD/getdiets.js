@@ -1,10 +1,9 @@
 const { Diets } = require("../db");
 const axios = require("axios");
-const allDiets = require("./alldiets");
-const dotenv = require("dotenv");
-dotenv.config();
+//const allDiets = require("./alldiets");
 
-axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
+
+
 
 const preDiet = async () => {
   try {
