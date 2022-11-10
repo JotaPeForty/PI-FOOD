@@ -1,1 +1,1 @@
-export const REACT_APP_BASE_URL = "https://pi-dog-api.up.railway.app" ||`http://localhost:3001`
+export const REACT_APP_BASE_URL = "https://pi-food-back.up.railway.app/" ||`http://localhost:3001`
