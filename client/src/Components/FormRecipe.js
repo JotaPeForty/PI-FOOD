@@ -12,7 +12,6 @@ function FormRecipe() {
     title: "",
     score: "",
     healthscore: "",
-    image: "",
     summary: "",
     diets: [],
   };
@@ -27,7 +26,6 @@ function FormRecipe() {
     e.preventDefault();
     if (
       form.title &&
-      form.image &&
       form.score &&
       form.healthscore &&
       form.summary &&
@@ -39,12 +37,15 @@ function FormRecipe() {
       setForm(dataForm);
       setNamesDiet([]);
       history.push("/home");
-      window.location.reload();
+      // window.location.reload();
     } else {
       setSuccess(false);
       setErrors(true);
     }
   };
+
+  console.log(form)
+  console.log(dataForm)
 
 
   const handleSelect = (e) => {
@@ -96,14 +97,7 @@ function FormRecipe() {
             placeholder="Title"
             name="title"
             type="text"
-          />
-          <input
-            className={s.input}
-            value={form.image}
-            onChange={(e) => handleOnChange(e)}
-            placeholder="Url Image"
-            name="image"
-            type="text"
+            required
           />
           <div>
             <input
@@ -112,7 +106,8 @@ function FormRecipe() {
               onChange={(e) => handleOnChange(e)}
               placeholder="Score"
               name="score"
-              type="text"
+              type="number"
+              required
             />
             <input
               className={s.inputN}
@@ -120,7 +115,8 @@ function FormRecipe() {
               onChange={(e) => handleOnChange(e)}
               placeholder="Health Score"
               name="healthscore"
-              type="text"
+              type="number"
+              required
             />
           </div>
           <textarea
@@ -130,6 +126,7 @@ function FormRecipe() {
             placeholder="Detailed step by step recipe"
             name="summary"
             type="text"
+            required
           />
           <div className={s.check}>
             <select className={s.input} onChange={handleSelect}>

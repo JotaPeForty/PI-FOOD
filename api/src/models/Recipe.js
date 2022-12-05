@@ -31,7 +31,7 @@ module.exports = (sequelize) => {
     },
     image: {
       type: DataTypes.STRING,
-      allowNull: false,
+      defaultValue: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAKWsvadyK1FqRocRR-wdxe-1Ti74lV26nlA&usqp=CAU",
       validate: {
         notEmpty: true
       }

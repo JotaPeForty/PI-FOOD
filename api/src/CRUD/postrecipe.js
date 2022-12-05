@@ -7,10 +7,10 @@ const postRecipe = (req, res, next) => {
     title,
     score,
     healthscore,
-    image,
     summary,
   };
-  
+  console.log(recipeDB);
+
   Recipe.create(recipeDB)
   .then((recipeDB) => {
     recipeDB.addDiets(diets);
